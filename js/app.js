@@ -45,17 +45,52 @@ if(BUTTON_SPOILERS.length >0){
 	BUTTON_SPOILERS.forEach((button=>{
 
 		button.addEventListener("click", function(){
+			
+			BUTTON_SPOILERS.forEach(btn=>{
+				btn.nextElementSibling.classList.remove('active');
+				btn.innerText = "+";
+			});
 
-
-			if(this.nextElementSibling.classList.contains('active')){
-				this.innerText = '+';
-			}else{
-				this.innerText = '-';
-			}
-
-			button.nextElementSibling.classList.toggle('active');
+			button.nextElementSibling.classList.add('active');
+			button.innerText = "-";
 		})
 		
 	}));
 }
 
+
+const SPOILERS_CLOSE = document.querySelectorAll('.aftercourse__net-close');
+
+if(SPOILERS_CLOSE.length > 0 ){
+	SPOILERS_CLOSE.forEach((close)=>{
+		close.addEventListener('click', ()=>{
+			close.parentElement.classList.remove('active');
+			close.parentElement.previousElementSibling.innerText = "+";
+		})
+	})
+}
+
+
+
+
+
+new Swiper('.program__slider-body', {
+
+
+	navigation: {
+		nextEl: '.program__next',
+		prevEl: '.program__prev',
+	 },
+	 spaceBetween: 20,
+	 breakpoints: {
+		0: {
+			slidesPerView: 1 
+		},
+		420: {
+			slidesPerView: 2
+		},
+		992: {
+			slidesPerView: 3
+		},
+	 }
+});
