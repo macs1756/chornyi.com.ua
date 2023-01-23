@@ -204,7 +204,7 @@ USER_BUTTON.addEventListener("click", ()=>{
 		USER_BUTTON.setAttribute('disabled', true);
 
 		async function getMail(){
-			let res = await fetch("https://okrealestatelutsk.com/sendmessage/", {
+			let res = await fetch("https://chornyi.com.ua/send/", {
 			  method: "POST",
 			  body: JSON.stringify({
 				 name: USER_NAME.value,
